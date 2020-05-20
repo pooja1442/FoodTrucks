@@ -1,0 +1,29 @@
+<div class="vendorShow">
+<div class="row">
+  <div class="col-md-3">
+    <div class="navbar navbar-inverse navbar-fixed-left">
+      <ul class="nav navbar-nav">
+      <li class="active"><%= link_to 'Dashboard' , vendor_path(@vendor)  %></li> 
+      <li><%= link_to 'Orders' %></li>
+      <li><%= link_to 'Menu' , vendor_products_path(@vendor) %></li>
+      <li><%= link_to 'Future Availability' %></li>
+      <li><%= link_to 'Notifications' %></li>
+      <li><%= link_to 'Foodtruck settings' ,edit_vendor_path(@vendor) %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vendor">
+    <div class="col-md-2">
+      <%= image_tag(@vendor.feature_image , size:100 , class: 'img-circle')  if @vendor.feature_image.attached? %>
+    </div>
+    <div class="col-md-4">
+      <h1><%= @vendor.name %> </h1>
+    </div>
+    <div class="col-md-2">
+      <br />
+      <%= link_to 'Create new Product' , new_vendor_product_path(@vendor) , class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+</div>
+
+</div>

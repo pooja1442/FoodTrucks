@@ -1,0 +1,98 @@
+<body class="gray">
+<div class="whitebox">
+ <h1>Register Your Food Truck</h1>
+  <%= form_for @vendor do |f| %>
+    <div class="row">
+      <div class="form-group col-lg-6">
+        <div class="form-group">
+          <%= f.label :Name %><span> * </span><br />
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Tagline %><span> * </span><br />
+          <%= f.text_field :tagline, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Description %><br />
+          <%= f.text_area :description, rows:3 , cols: 5 , autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :Order_Fulfillment_time_in_Minutes %><span>*</span><br />
+          <%= f.select(:default_fulfillment_time_in_minutes ,raw("<option value='5'>5</option><option value='10'>10</option><option selected='selected' value='15'>15</option><option value='20'>20</option><option value='25'>25</option><option value='30'>30</option>"), {},class: 'form-control') %>
+        </div>
+      </div>
+      <div class="form-group col-lg-6">
+        <div class="imagelogo">
+          <%= image_tag("logos/i.png" , height: '250px' , width: '400px')%>
+        </div>
+        <div class="form-group">
+        <br /><br />
+          <%= f.file_field :feature_image   , class: 'form-control'%>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.label :Pick_categories %> <strong>(Max 2)</strong><span> * </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name ) do |b| %>
+        <div class="col-md-3">
+        <%= b.check_box %> &nbsp;&nbsp;<%= b.label { b.text } %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="form-group col-lg-6">
+        <%= f.label :Cities %>
+        <%= f.collection_select :city_ids, City.all, :id, :name ,  { include_blank: false }, { class: "form-control" } %>
+        </div>
+      <div class="form-group">
+        <%= f.label :Rate_your_truck_from_Cheap %> <strong>(1) to Spendy (5)</strong><br />
+        <%= f.radio_button :price_point, "1" , checked: false %> 1 &nbsp;&nbsp;&nbsp;
+        <%= f.radio_button :price_point, "2" , checked: false%> 2 &nbsp;&nbsp;&nbsp;
+        <%= f.radio_button :price_point, "3", checked: false %> 3 &nbsp;&nbsp;&nbsp;
+        <%= f.radio_button :price_point, "4" , checked: false%> 4 &nbsp;&nbsp;&nbsp;
+        <%= f.radio_button :price_point, "5" , checked: false%> 5
+      </div>
+    </div>
+    <div class="row">
+      <%= f.fields_for :tax , @vendor.tax do |tax_form| %>
+        <h2>Taxes and Fees </h2>
+        <div class="form-group col-md-4">
+            <%= tax_form.label :description %>
+            <%= tax_form.text_field :description , class: 'form-control'%>
+            <span class="text-muted">Name of the tax</span>
+        </div>
+        <div class="form-group col-md-4">
+          <%= tax_form.label :Amount %>
+          <%= tax_form.text_field :amount , class: 'form-control'%>
+          <span class="text-muted">Input amount the customer needs to pay</span>
+        </div>
+        <div class="form-group col-md-4">
+          <%= tax_form.label :tax_in_percentage_or_flat_amount %><br />
+          <%= tax_form.radio_button :is_percentage, "true", checked: false %> &nbsp; Percentage &nbsp;&nbsp;&nbsp;
+          <%= tax_form.radio_button :is_percentage, "false", checked: false %> &nbsp; Flat Amount &nbsp;&nbsp;&nbsp;
+        </div>
+      <% end %>
+    </div>
+    <br />
+    <div class="row">
+     
+      <div class="form-group col-md-6">
+        <%= f.check_box :terms_of_service , {} , "1" %>
+         <strong> I agree to the Vendor Terms of Service </strong> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.submit "Register Your Food Truck", class: "btn btn-lg bg-danger" , id: 'createVendor'%>
+      </div>
+    </div>
+  <% end %>
+</div>
+</body>

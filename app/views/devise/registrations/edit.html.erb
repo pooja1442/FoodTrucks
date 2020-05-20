@@ -1,0 +1,80 @@
+<body class="gray">
+<div class="outer-box">
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } , html: { multipart: true }) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <div class="row">
+    <div class="form-group col-md-6">
+      <div class="form-group">
+        <%= f.label :First_name %><span> * </span><br />
+        <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name %><span> * </span><br />
+        <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone_number %><br />
+        <%= f.text_field :phone_number, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %><span> * </span><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group col-md-4">
+      <img id="img_prev" width='150' height='150' src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
+      <% if current_user.feature_image.attached? %>
+      <%= image_tag(current_user.feature_image , size: 250 )  %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :Birthdate %><br />
+      <%= f.date_field :birth_date, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :Time_Zone %><span> * </span><br />
+      <%= f.select(:time_zone, raw("<option value='Pacific Time (US &amp; Canada)'>(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+      <option value='Mountain Time (US &amp; Canada)'>(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+      <option value='Central Time (US &amp; Canada)'>(GMT-06:00) Central Time (US &amp; Canada)</option>
+      <option value='Eastern Time (US &amp; Canada)'>(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+      <option value='Hawaii'>(GMT-10:00) Hawaii</option>
+      <option value='Alaska'>(GMT-09:00) Alaska</option>
+      <option selected='selected' value='Kolkata'>(GMT+05:30) Kolkata</option>"), {}, { :class => 'form-control' }) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :current_password %> <span> * </span>
+      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      <span class="btmText" style="color: gray;">Required only for email update</span>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :New_password %> 
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      <span class="btmText" style="color: gray;">Leave blank if you don’t want to change your password</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :New_password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :Feature_image %>
+      <%= f.file_field :feature_image , id: 'image-upload' ,class: 'form-control' %>
+    </div>
+  </div> 
+  <div class="actions">
+    <center>
+    <%= f.submit "Update", class: "btn btn-lg btn-white" , id: 'update' %>
+    </center>
+  </div>
+<% end %>
+</div>
+</body>

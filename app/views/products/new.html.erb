@@ -1,0 +1,62 @@
+<body class="gray">
+<div class="whitebox">
+<h1>Create new Product</h1>
+<%= form_for [@vendor, @vendor.products.build ] do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+     <div class="form-group col-md-6">
+      <%= f.label :Item_name %><span> * </span><br />
+      <%= f.text_field :name , class:' form-control' %>
+    </div>
+    <div class="form-group col-md-">
+      <%= f.label :Item_price %><span> * </span>
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+        <%= f.text_field :cost_in_dollars , class: 'form-control' , placeholder: '0.0' , type: 'integer' %> 
+      </div>
+    </div>
+      <div class="form-group">
+        <%= f.label :description %><span> * </span><br />
+        <%= f.text_area  :description , rows: 4, class: 'form-control' %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :menu_category %><span> * </span><br />
+        <%= f.text_field  :menu_category , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :tags %><br />
+        <%= f.text_field  :tags , class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-3">
+        <h4><%= f.label :Availability %></h4>
+        <label class="switch checkbox-inline">
+          <%= f.check_box :availability %>
+          <span class="slider round"></span>
+        </label> 
+      </div>
+      <div class="form-group col-md-3">
+        <h4><%= f.label :is_popular %></h4>
+        <label class="switch checkbox-inline">
+          <%= f.check_box :is_popular %>
+          <span class="slider round"></span>
+        </label> 
+      </div>
+    </div>
+    <div class="col-md-6">
+      <center>
+        <div class="image">
+          <h4><%= f.label :Menu_Item_Image  %></h4>
+          <img id="img_prev" width='200' height='200' src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
+          <%= f.file_field :feature_image, id: 'image-upload' , class: 'form-control' %>
+        </div>
+      </center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.submit 'Create Product', id: 'createProduct' ,class: 'btn btn-white btn-lg' %>
+    </div>
+  </div>
+<% end %>
+</div>
+</body>

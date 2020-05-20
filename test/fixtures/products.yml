@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  slug: MyString
+  description: MyText
+  cost_in_dollars: 9.99
+  position: 1
+  availability: 1
+  is_popular: false
+  menu_category: MyString
+  tags: MyString
+  is_catering: false
+  vendor: one
+
+two:
+  name: MyString
+  slug: MyString
+  description: MyText
+  cost_in_dollars: 9.99
+  position: 1
+  availability: 1
+  is_popular: false
+  menu_category: MyString
+  tags: MyString
+  is_catering: false
+  vendor: two
