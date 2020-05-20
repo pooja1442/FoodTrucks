@@ -6,13 +6,13 @@
   </center>
     <div class="row">
       <div class="form-group">
-        <%= f.label :email %><br />
+        <%= f.label :email %><span class="red"> * </span><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" ,required: true %>
       </div>
     </div>
     <div class="row">
       <div class="form-group">
-        <%= f.label :password %><br />
+        <%= f.label :password %><span class="red"> * </span><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" ,required: true%>
       </div>
     </div>

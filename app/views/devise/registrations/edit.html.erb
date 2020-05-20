@@ -7,11 +7,11 @@
   <div class="row">
     <div class="form-group col-md-6">
       <div class="form-group">
-        <%= f.label :First_name %><span> * </span><br />
+        <%= f.label :First_name %><span class="red"> * </span><br />
         <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :last_name %><span> * </span><br />
+        <%= f.label :last_name %><span class="red"> * </span><br />
         <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
@@ -19,7 +19,7 @@
         <%= f.text_field :phone_number, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :email %><span> * </span><br />
+        <%= f.label :email %><span class="red"> * </span><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <%= f.date_field :birth_date, autofocus: true, class: "form-control" %>
     </div>
     <div class="form-group col-md-6">
-      <%= f.label :Time_Zone %><span> * </span><br />
+      <%= f.label :Time_Zone %><span class="red"> * </span><br />
       <%= f.select(:time_zone, raw("<option value='Pacific Time (US &amp; Canada)'>(GMT-08:00) Pacific Time (US &amp; Canada)</option>
       <option value='Mountain Time (US &amp; Canada)'>(GMT-07:00) Mountain Time (US &amp; Canada)</option>
       <option value='Central Time (US &amp; Canada)'>(GMT-06:00) Central Time (US &amp; Canada)</option>
@@ -49,7 +49,7 @@
   </div>
   <div class="row">
     <div class="form-group col-md-6">
-      <%= f.label :current_password %> <span> * </span>
+      <%= f.label :current_password %> <span class="red"> * </span>
       <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       <span class="btmText" style="color: gray;">Required only for email update</span>
     </div>
