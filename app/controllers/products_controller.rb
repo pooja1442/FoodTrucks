@@ -16,6 +16,21 @@ class ProductsController < ApplicationController
     @vendor = Vendor.find(params[:vendor_id])
     @products = Product.all.where(vendor_id: @vendor.id)
   end
+
+  def edit
+    @vendor = Vendor.find(params[:vendor_id])
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @vendor = Vendor.find(params[:vendor_id])
+    @product = @vendor.products.find(params[:id])
+    if @product.update(productParams)
+        redirect_to vendor_products_path
+    else
+      render :edit
+    end
+  end
   private
 
   def productParams
