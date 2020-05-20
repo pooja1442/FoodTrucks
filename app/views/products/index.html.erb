@@ -3,12 +3,12 @@
     <div class="col-md-3">
       <div class="navbar navbar-inverse navbar-fixed-left">
         <ul class="nav navbar-nav">
-        <li><%= link_to 'Dashboard' , vendor_path(@vendor)  %></li> 
-        <li><%= link_to 'Orders' %></li>
-        <li  class="active"><%= link_to 'Menu' , vendor_products_path(@vendor) %></li>
-        <li><%= link_to 'Future Availability' %></li>
-        <li><%= link_to 'Notifications' %></li>
-        <li><%= link_to 'Foodtruck settings' ,edit_vendor_path(@vendor) %></li>
+          <li><%= link_to 'Dashboard' , vendor_path(@vendor)  %></li> 
+          <li><%= link_to 'Orders' %></li>
+          <li  class="active"><%= link_to 'Menu' , vendor_products_path(@vendor) %></li>
+          <li><%= link_to 'Future Availability' %></li>
+          <li><%= link_to 'Notifications' %></li>
+          <li><%= link_to 'Foodtruck settings' ,edit_vendor_path(@vendor) %></li>
         </ul>
       </div>
     </div>
@@ -42,6 +42,21 @@
                     </span>
                   </div>
                 </div>
+              </div>
+              <div class="col-md-3">
+                Available
+                <label class="switch checkbox-inline">
+                  <% if p.availability == 1 %>
+                    <%= check_box_tag :availability , '1' , checked: true %>
+                  <% else %>
+                    <%= check_box_tag :availability , '0' , checked: false %>
+                  <% end %>
+                  <span class="slider round"></span>
+                </label> 
+                <br /><br /><br /><br /><br /><br />
+                <%= link_to 'Add To Catering' , root_path , class: 'btn btn-border' %>
+                <%= link_to 'Edit' , root_path , class: 'btn btn-border' %>
+     
               </div>
             </div>
           </div>
