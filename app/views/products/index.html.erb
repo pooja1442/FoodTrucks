@@ -49,10 +49,10 @@
               <div class="col-md-3">
                 Available
                 <label class="switch checkbox-inline">
-                  <% if p.availability == 1 %>
+                  <% if p.availability.to_i == 1 %>
                     <%= check_box_tag :availability , '1' , checked: true %>
                   <% else %>
-                    <%= check_box_tag :availability , '0' , checked: false %>
+                    <%= check_box_tag :availability , '0' %>
                   <% end %>
                   <span class="slider round"></span>
                 </label> 

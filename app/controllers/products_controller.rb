@@ -34,6 +34,6 @@ class ProductsController < ApplicationController
   private
 
   def productParams
-    params.require(:product).permit( :name , :cost_in_dollars , :description , :menu_category , :tags , :availability , :is_popular , :feature_image , choices_attributes: [:id, :name, :_destroy])
+    params.require(:product).permit( :name , :cost_in_dollars , :description , :menu_category , :tags , :availability , :is_popular , :feature_image , choices_attributes: [:id, :name, :allows_multiple, :_destroy ,options_attributes: [:id, :name, :cost_in_dollars,  :choice_id,:_destroy]] )
   end
 end

@@ -1,8 +1,51 @@
-<div class="nested-fields">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="col-md-9" style="background-color: #f1f1f1l">
+  <div class="form-group choiceBox nested-fields">
+    <div class="choicediv">
 
-  <%= f.check_box :_destroy %>Destroy
+      <div class="position_lines">
+        <%= f.hidden_field  :position , value: '1' %>  
+      </div>
+      
+      <div class="field">
+        <%= f.text_field :name , class: 'form-control', placeholder: 'Choice Name' %>
+      </div>
 
-  <%= link_to_remove_association "remove choice", f ,class: 'fa fa-user'%>
+      <div class="field">
+        <%= f.label :allows_multiple %> &nbsp;&nbsp;&nbsp;
+        <label class="switch checkbox-inline">
+          <%= f.check_box :allows_multiple %>
+          <span class="slider round"></span>
+        </label> 
+      </div>
+
+      <div>
+        <%= f.hidden_field :_destroy %> 
+        <%= link_to '' , class: 'text-danger btn-delete slide-up-section btn btn-primary btn-border btn-remove remove_fields dynamic' do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end %>
+      </div>
+
+    
+      </div>
+      <div class="optionRecords">
+        <div id="nested_options_new_choices_field"></div>
+      
+          <%= f.fields_for :options do |option| %>
+            <%= render 'option_fields', f: option %>
+          <% end %>
+
+        <div class="row">
+        <div class="col-md-12 text-right">
+        <%= link_to_add_association 'Add option', f , :options , class: 'btn btn-border'%>
+        </div>
+     
+        </div>
+     
+      </div>
+
+    
+   
+  </div>
+  
+  
 </div>

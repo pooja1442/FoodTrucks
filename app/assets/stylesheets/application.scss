@@ -364,10 +364,7 @@ ul.ui-autocomplete {
   font-weight: bolder !important;
   transition: 0.3s;
 }
-.vendor {
-  background: gray;
-  
-}
+
 
 .logo img {
   padding-top: 10px;
@@ -460,4 +457,49 @@ hr{
   border: 1px solid transparent !important;
   background-color: #d2192f !important;
   transition: 0.4s;
+}
+
+// add options and choices
+
+.choiceBox {
+    border: 1px solid #f1f1f1;
+    padding: 0 !important;
+    border-radius: 5px;
+    margin: 0 0 10px 0 !important;
+    min-width: 700px;
+}
+.choicediv  {
+  padding: 30px;
+  background: #fbfbfb;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.links .btn-border{
+  margin-left: 15px;
+}
+.optionRecords, .scheduleRecords {
+  padding: 10px;
+  background: #fbfbfb;
+}
+.optionRecords .oRecord, .optionRecords .sRecord, .scheduleRecords .oRecord, .scheduleRecords .sRecord {
+  margin-bottom: 12px;
+  border-radius: 5px;
+  background: #ffffff;
+  margin-left: 150px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
