@@ -10,10 +10,12 @@ require("channels")
 require("jquery")
 require("imports-loader")
 
+import "cocoon";
 import 'imports-loader?define=>false,module.exports=>false!jquery-validation';
 
 //require('imports-loader?define=>false!jquery.validate')(window, $)
 
+//= require bootstrap-sprockets
 //= require jquery3
 //= require jquery-ui
 //= require jquery_ujs

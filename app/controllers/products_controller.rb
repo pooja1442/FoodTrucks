@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     @vendor = Vendor.find(params[:vendor_id])
     @product = Product.new(productParams)
     @vendor.products.create(productParams)
-    redirect_to @vendor
+    redirect_to vendor_products_path
   end
 
   def index
@@ -34,6 +34,6 @@ class ProductsController < ApplicationController
   private
 
   def productParams
-    params.require(:product).permit( :name , :cost_in_dollars , :description , :menu_category , :tags , :availability , :is_popular , :feature_image)
+    params.require(:product).permit( :name , :cost_in_dollars , :description , :menu_category , :tags , :availability , :is_popular , :feature_image , choices_attributes: [:id, :name, :_destroy])
   end
 end

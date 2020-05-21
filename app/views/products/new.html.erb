@@ -53,6 +53,21 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-3">
+      <p><strong>Choices:</strong></p>
+
+      <div id="choices">
+      <%= f.fields_for :choices do |choice| %>
+        <%= render 'choice_fields', f: choice %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add choice', f , :choices , class: 'btn btn-border'%>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
     <div class="form-group col-md-3">
       <%= f.submit 'Create Product', id: 'createProduct' ,class: 'btn btn-white btn-lg' %>
     </div>

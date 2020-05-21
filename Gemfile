@@ -28,6 +28,9 @@ gem 'paperclip' ,'~> 6.1.0'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'jquery-ui-rails' , '~> 6.0.1'
+gem 'cocoon'
+gem 'font-awesome-sass' , '~> 5.12.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

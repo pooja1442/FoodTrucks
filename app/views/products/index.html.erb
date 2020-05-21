@@ -3,7 +3,10 @@
     <div class="col-md-3">
       <div class="navbar navbar-inverse navbar-fixed-left">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Dashboard' , vendor_path(@vendor)  %></li> 
+          <li><%= link_to vendor_path(@vendor) do %>
+            <i class="fas fa-home"></i> Dashboard
+            <% end %>  
+          </li> 
           <li><%= link_to 'Orders' %></li>
           <li  class="active"><%= link_to 'Menu' , vendor_products_path(@vendor) %></li>
           <li><%= link_to 'Future Availability' %></li>

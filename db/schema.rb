@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_082909) do
+ActiveRecord::Schema.define(version: 2020_05_21_052548) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 2020_05_19_082909) do
     t.integer "vendor_id", null: false
     t.integer "city_id", null: false
     t.index ["city_id", "vendor_id"], name: "index_cities_vendors_on_city_id_and_vendor_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string "name"
+    t.decimal "cost_in_dollars"
+    t.integer "position"
+    t.integer "choice_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["choice_id"], name: "index_options_on_choice_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -193,6 +203,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_082909) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "choices", "products"
+  add_foreign_key "options", "choices"
   add_foreign_key "products", "vendors"
   add_foreign_key "taxes", "vendors"
   add_foreign_key "vendors", "users"
